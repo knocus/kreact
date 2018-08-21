@@ -1,0 +1,16 @@
+{
+  "name": "kreact",
+  "version": "0.0.1-canary",
+  "description": "React.js toolkit for Typescript",
+  "main": "dist/index.js",
+  "repository": "https://github.com/knocus/kreact.git",
+  "author": "Sahal Sajjad <sahalsajjad@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@types/react": "^16.4.11",
+    "@types/react-dom": "^16.0.7",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  }
+}
