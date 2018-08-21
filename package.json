@@ -1,6 +1,6 @@
 {
   "name": "kreact",
-  "version": "0.0.1-canary",
+  "version": "0.0.1-canary-001",
   "description": "React.js toolkit for Typescript",
   "main": "dist/index.js",
   "repository": "https://github.com/knocus/kreact.git",
