@@ -54,6 +54,8 @@ export function RenderReact(opts: renderOpts = def_args){
             ${injectScripts(bodyScripts)}
         </body>
     </html>`
+
+    return markup;
 }
 
 const metaCharset = (charset: string | null) => (

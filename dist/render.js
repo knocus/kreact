@@ -14,6 +14,7 @@ function RenderReact(opts) {
     var component = opts.component;
     var bodyScripts = def(opts.bodyScripts, []);
     var markup = "\n    <!doctype html>\n    <html>\n        <head>\n            <title>" + title + "</title>\n            " + (charset ? charset : '<meta charset="utf-8"/>') + "\n            " + injectStylesheets(stylesheets) + "\n            " + injectScripts(headScripts) + "\n        </head>\n        <body>\n            <div id=\"app\">" + ReactDOMServer.renderToString(component) + "</div>\n            " + injectScripts(bodyScripts) + "\n        </body>\n    </html>";
+    return markup;
 }
 exports.RenderReact = RenderReact;
 var metaCharset = function (charset) { return (charset ? "<meta charset=\"" + charset + "\" />" : null); };

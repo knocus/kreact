@@ -23,4 +23,4 @@ export interface scriptOpts {
     isAsync?: string;
     isDefer?: string;
 }
-export declare function RenderReact(opts?: renderOpts): void;
+export declare function RenderReact(opts?: renderOpts): string;
