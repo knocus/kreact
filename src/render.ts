@@ -3,6 +3,7 @@ import * as ReactDOMServer from 'react-dom/server';
 
 export interface renderOpts {
     title?:string,
+    favicon?:string,
     stylesheets?: stylesheetOpts[],
     headScripts?: scriptOpts[],
     component: React.Component | React.PureComponent | any,
@@ -39,6 +40,7 @@ export function RenderReact(opts: renderOpts = def_args){
     let headScripts = def(opts.headScripts, []);
     let component = opts.component;
     let bodyScripts = def(opts.bodyScripts, []);
+    let favicon = def(opts.favicon, "");
 
     let markup = `
     <!doctype html>
@@ -46,6 +48,7 @@ export function RenderReact(opts: renderOpts = def_args){
         <head>
             <title>${title}</title>
             ${charset ? charset : '<meta charset="utf-8"/>'}
+            ${injectFavicon(favicon)}
             ${injectStylesheets(stylesheets)}
             ${injectScripts(headScripts)}
         </head>
@@ -54,6 +57,8 @@ export function RenderReact(opts: renderOpts = def_args){
             ${injectScripts(bodyScripts)}
         </body>
     </html>`
+
+    return markup;
 }
 
 const metaCharset = (charset: string | null) => (
@@ -65,6 +70,15 @@ const injectMetaTags = (tags: metaOpts[]) => (
         return `<meta name=${tag.name} content="${tag.content}" />`
     })
 )
+
+const injectFavicon = (favicon:string) => {
+    if(favicon.length > 0){
+        return `<link rel= "shortcut icon" href = "${favicon}" type = "image/x-icon" >
+        <link rel="icon" href = "${favicon}" type = "image/x-icon" >`
+    } else {
+        return ``;
+    }
+}
 
 const injectStylesheets = (headStylesheets: any[]) => (
     headStylesheets.map(stylesheet => {

@@ -2,6 +2,7 @@
 import * as React from 'react';
 export interface renderOpts {
     title?: string;
+    favicon?: string;
     stylesheets?: stylesheetOpts[];
     headScripts?: scriptOpts[];
     component: React.Component | React.PureComponent | any;
@@ -23,4 +24,4 @@ export interface scriptOpts {
     isAsync?: string;
     isDefer?: string;
 }
-export declare function RenderReact(opts?: renderOpts): void;
+export declare function RenderReact(opts?: renderOpts): string;
